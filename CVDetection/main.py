@@ -8,7 +8,7 @@ import time
 
 
 def fit_to_screen(name, img):
-    dim = (int(img.shape[1] * 0.5), int(img.shape[0] * 0.5))
+    dim = (int(img.shape[1] * 2), int(img.shape[0] * 2))
     cv2.imshow(name, cv2.resize(img, dim, cv2.INTER_AREA))
 
 
