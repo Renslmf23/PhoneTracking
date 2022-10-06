@@ -1,12 +1,12 @@
 <CameraParameters>
     <Camera name="PhoneCam">
         <HSVParams>
-            <hMin>0</hMin>
+            <hMin>50</hMin>
             <sMin>0</sMin>
             <vMin>0</vMin>
-            <hMax>145</hMax>
-            <sMax>166</sMax>
-            <vMax>86</vMax>
+            <hMax>111</hMax>
+            <sMax>206</sMax>
+            <vMax>102</vMax>
         </HSVParams>
         <KernelSize>8</KernelSize>
         <KernelSizeErosion>5</KernelSizeErosion>
@@ -28,8 +28,8 @@
                 <row>1.00000000e+00</row>
             </col>
         </PerspectiveMatrix>
-        <MinPhoneWidth>100</MinPhoneWidth>
-        <MaxPhoneWidth>120</MaxPhoneWidth>
+        <MinPhoneWidth>50</MinPhoneWidth>
+        <MaxPhoneWidth>200</MaxPhoneWidth>
         <MinPhoneHeight>150</MinPhoneHeight>
         <MaxPhoneHeight>500</MaxPhoneHeight>
         <CorrectWarp>True</CorrectWarp>

@@ -90,31 +90,21 @@ class ImageHandler:
         # # return img, img
         filtered, resized = self.filter_image(img)
         contours, hier = cv2.findContours(filtered, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-        angles = []
-        midlines = []
         for c in contours:
+
             rect = cv2.minAreaRect(c)
             size_x, size_y = min(rect[1]), max(rect[1])
             if self.min_phone_width < size_x < self.max_phone_width and self.min_phone_height < size_y < self.max_phone_height:
+                epsilon = 0.001 * cv2.arcLength(c, True)
+                approx = cv2.approxPolyDP(c, epsilon, True)
+                hull = cv2.convexHull(approx)
+
+                cv2.drawContours(resized, [hull], 0, (0, 255, 0), 1)
                 rail = Box(rect)
                 # convert all coordinates floating point values to int
                 box = rail.points
-                mid_line = rail.get_mid_line()
-                midlines.append(mid_line)
                 cv2.drawContours(resized, [box], 0, (0, 0, 255))
-                angles.append(mid_line.get_angle())
-        #
-        if len(midlines) != 2:
-            return filtered, resized, None
-        if midlines[0].point1[0] > midlines[1].point1[0]:
-            midlines = [midlines[1], midlines[0]]
-        midline_rails = Line(midlines[1].lowest_point(), midlines[0].lowest_point())
-        cv2.line(resized, midlines[0].point1, midlines[0].point2, (255, 0, 0))
-        cv2.line(resized, midlines[1].point1, midlines[1].point2, (255, 0, 0))
-        cv2.line(resized, midline_rails.point1, midline_rails.point2, (0, 255, 0))
-        midlines.append(midline_rails)
-        midlines.append((int(self.width/2) + self.offset[0], int(self.height) + self.offset[1]))
-        return filtered, resized, midlines
+        return filtered, resized, None
 
     def nothing(self, x):
         pass
