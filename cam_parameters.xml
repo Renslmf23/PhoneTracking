@@ -1,0 +1,43 @@
+<CameraParameters>
+    <Camera name="PhoneCam">
+        <HSVParams>
+            <hMin>50</hMin>
+            <sMin>0</sMin>
+            <vMin>0</vMin>
+            <hMax>111</hMax>
+            <sMax>206</sMax>
+            <vMax>102</vMax>
+        </HSVParams>
+        <KernelSize>8</KernelSize>
+        <KernelSizeErosion>5</KernelSizeErosion>
+        <ScalePercent>100</ScalePercent>
+        <PerspectiveMatrix>
+            <col>
+                <row>2.17578125e+00</row>
+                <row>7.83854167e-01</row>
+                <row>-1.20400000e+03</row>
+            </col>
+            <col>
+                <row>0.00000000e+00</row>
+                <row>2.81770833e+00</row>
+                <row>-9.86000000e+02</row>
+            </col>
+            <col>
+                <row>-0.00000000e+00</row>
+                <row>7.65482585e-04</row>
+                <row>1.00000000e+00</row>
+            </col>
+        </PerspectiveMatrix>
+        <MinPhoneWidth>20</MinPhoneWidth>
+        <MaxPhoneWidth>200</MaxPhoneWidth>
+        <MinPhoneHeight>150</MinPhoneHeight>
+        <MaxPhoneHeight>500</MaxPhoneHeight>
+        <CorrectWarp>True</CorrectWarp>
+        <Flip>False</Flip>
+        <CropDistance>0</CropDistance>
+        <OffsetCamera>
+            <x>-50</x>
+            <y>100</y>
+        </OffsetCamera>
+    </Camera>
+</CameraParameters>
